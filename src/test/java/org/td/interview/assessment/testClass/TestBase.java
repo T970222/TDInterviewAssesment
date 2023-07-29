@@ -31,7 +31,7 @@ public class TestBase {
     }
     private void initWebDriver(String browser){
         capabilities = new DesiredCapabilities();
-        binaryPath = this.getClass().getClassLoader().getResource("webDriverBinaries/chromedriver.exe").getPath();
+        binaryPath = this.getClass().getClassLoader().getResource("webDriverBinaries/chromedriver115.exe").getPath();
         switch (browser.toLowerCase()) {
             case "chrome":
                 ChromeOptions chrome_options = new ChromeOptions();
