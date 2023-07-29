@@ -30,7 +30,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B clean test
     - name: Upload screenshots
-      uses: actions/upload-artifact@latest
+      uses: actions/upload-artifact@v1
       if: failure()
       with:
        name: TDInterviewAssesment-snapshots
