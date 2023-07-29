@@ -65,11 +65,8 @@ public class TdHomePage {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-// Now you can do whatever you need to do with it, for example copy somewhere
-
-        //return telusLogo.isDisplayed();
         System.out.println("is telus Logo displayed end....");
-        return true;
+        return telusLogo.isDisplayed();
     }
     public void clickSearchResult(String expectedValue) {
         System.out.println("click search dropdown....");
