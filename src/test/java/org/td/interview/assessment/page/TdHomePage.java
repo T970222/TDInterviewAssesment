@@ -1,24 +1,16 @@
 package org.td.interview.assessment.page;
 
-import com.aventstack.extentreports.gherkin.model.Given;
 import io.restassured.RestAssured;
-import org.apache.logging.log4j.core.util.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import javax.net.ssl.HttpsURLConnection;
 import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.time.Duration;
 import java.util.Iterator;
 import java.util.List;
@@ -54,6 +46,7 @@ public class TdHomePage {
 
     public boolean isTelusLogDisplayed(){
         System.out.println("is telus Logo displayed....");
+        driver.manage().window().maximize();
         waitForpageOrElementToLoad(telusLogo);
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         try {
