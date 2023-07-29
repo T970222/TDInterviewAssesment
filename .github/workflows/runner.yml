@@ -34,7 +34,7 @@ jobs:
       if: failure()
       with:
        name: TDInterviewAssesment-snapshots
-       path: TDInterviewAssesment/screenshot
+       path: screenshot/screenshot1.png
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
