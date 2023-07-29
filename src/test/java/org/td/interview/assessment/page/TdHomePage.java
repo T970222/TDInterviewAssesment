@@ -53,6 +53,7 @@ public class TdHomePage {
     public List<WebElement> searchResultContainersLink;
 
     public boolean isTelusLogDisplayed(){
+        System.out.println("is telus Logo displayed....");
         waitForpageOrElementToLoad(telusLogo);
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         try {
@@ -67,32 +68,39 @@ public class TdHomePage {
 // Now you can do whatever you need to do with it, for example copy somewhere
 
         //return telusLogo.isDisplayed();
+        System.out.println("is telus Logo displayed end....");
         return true;
     }
     public void clickSearchResult(String expectedValue) {
+        System.out.println("click search dropdown....");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
         waitForElementClickable(searchSuggestions.get(0));
         for (WebElement suggestion : searchSuggestions) {
             System.out.println(suggestion.getText());
             if (suggestion.getText().toLowerCase().trim().contains(expectedValue.toLowerCase())) {
                 suggestion.findElement(By.tagName("a")).click();
+                System.out.println("click search dropdown done....");
                 break;
             }
         }
     }
     public String getSearchInputFieldText(){
+        System.out.println("click text from searchInputText....");
         waitForElementClickable(searchInputText);
         return searchInputText.getText();
     }
     public String getSearhResultHeaderText(){
+        System.out.println("click text from searchResultHeaderText....");
         waitForElementClickable(searchResultHeader);
         return searchResultHeader.getText();
     }
     public int getSearchResulSize() {
+        System.out.println("click text from searchResultHeaderSize....");
         waitForElementClickable(searchResultContainersLink.get(0));
         return searchResultContainersLink.size();
     }
     public int getBrokenSearchResultContainersLink() {
+        System.out.println("get browken link....");
         waitForElementClickable(searchResultContainersLink.get(0));
         String url = "";
         HttpURLConnection huc = null;
@@ -117,11 +125,13 @@ public class TdHomePage {
         return brokenLinkCount;
     }
     public void clickSearchIcon(){
+        System.out.println("click search icon....");
         waitForElementClickable(searchIcon);
         searchIcon.click();
     }
 
     public void typeInterNet(){
+        System.out.println("type internet ....");
         waitForElementClickable(searchInputFiled);
         searchInputFiled.sendKeys("Internet");
         try {
@@ -149,6 +159,7 @@ public class TdHomePage {
         }
     }
         public  int getUrlResponseCode(String url){
+            System.out.println("get url response ....");
             RestAssured.proxy("198.161.14.25",8080);
             RestAssured.useRelaxedHTTPSValidation();
            return  given().when().get(url).then().extract().statusCode();

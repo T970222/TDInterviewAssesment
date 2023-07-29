@@ -47,6 +47,7 @@ public class TestBase {
         }
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         driver.manage().window().maximize();
+        System.out.println("driver initiated....");
     }
     protected void openApplication(String url){
         driver.get(url);
