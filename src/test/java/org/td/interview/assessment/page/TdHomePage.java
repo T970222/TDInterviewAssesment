@@ -52,10 +52,11 @@ public class TdHomePage {
     public List<WebElement> searchResultContainersLink;
 
     public boolean isTelusLogDisplayed(){
-        System.out.println(driver.getPageSource());
+
         waitForpageOrElementToLoad(telusLogo);
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         try {
+            System.out.println(System.getProperty("user.dir")+"\\screenshot\\screenshot1.png");
             Files.copy(scrFile.toPath(), new File(System.getProperty("user.dir")+"\\screenshot\\screenshot1.png").toPath());
         } catch (IOException e) {
             throw new RuntimeException(e);
