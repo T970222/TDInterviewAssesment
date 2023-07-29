@@ -52,6 +52,7 @@ public class TdHomePage {
     public List<WebElement> searchResultContainersLink;
 
     public boolean isTelusLogDisplayed(){
+        System.out.println(driver.getPageSource());
         waitForpageOrElementToLoad(telusLogo);
         return telusLogo.isDisplayed();
     }
