@@ -18,6 +18,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.Duration;
 import java.util.Iterator;
 import java.util.List;
@@ -52,12 +53,14 @@ public class TdHomePage {
     public List<WebElement> searchResultContainersLink;
 
     public boolean isTelusLogDisplayed(){
-
         waitForpageOrElementToLoad(telusLogo);
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         try {
-            System.out.println(System.getProperty("user.dir")+"\\screenshot\\screenshot1.png");
-            Files.copy(scrFile.toPath(), new File(System.getProperty("user.dir")+"\\screenshot\\screenshot1.png").toPath());
+            File destFile = new File(System.getProperty("user.dir") + "\\screenshot\\screenshot1.png");
+           if(destFile.exists()){
+               destFile.delete();
+           }
+            Files.copy(scrFile.toPath(),destFile.toPath() );
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
