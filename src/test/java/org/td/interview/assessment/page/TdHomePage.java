@@ -2,10 +2,8 @@ package org.td.interview.assessment.page;
 
 import com.aventstack.extentreports.gherkin.model.Given;
 import io.restassured.RestAssured;
-import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.logging.log4j.core.util.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -13,11 +11,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.net.ssl.HttpsURLConnection;
+import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.file.Files;
 import java.time.Duration;
 import java.util.Iterator;
 import java.util.List;
@@ -54,6 +54,14 @@ public class TdHomePage {
     public boolean isTelusLogDisplayed(){
         System.out.println(driver.getPageSource());
         waitForpageOrElementToLoad(telusLogo);
+        File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        try {
+            Files.copy(scrFile.toPath(), new File("c:\\tmp\\screenshot.png").toPath());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+// Now you can do whatever you need to do with it, for example copy somewhere
+
         //return telusLogo.isDisplayed();
         return true;
     }
