@@ -56,7 +56,7 @@ public class TdHomePage {
         waitForpageOrElementToLoad(telusLogo);
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         try {
-            Files.copy(scrFile.toPath(), new File("c:\\tmp\\screenshot.png").toPath());
+            Files.copy(scrFile.toPath(), new File(System.getProperty("user.dir")+"\\screenshot\\screenshot1.png").toPath());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
