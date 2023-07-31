@@ -9,6 +9,5 @@ public class Testcase extends TestBase{
         tdHomePageSteps.verifyHomePageLoadedSuccessfully();
         tdHomePageSteps.searchInternetTroubleshooting();
         tdHomePageSteps.verifySearchResult();
-        Thread.sleep(10*1000);
     }
 }
