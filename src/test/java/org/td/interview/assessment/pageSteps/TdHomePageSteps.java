@@ -13,7 +13,7 @@ public class TdHomePageSteps {
     }
     public void verifyHomePageLoadedSuccessfully(){
         System.out.println("verify HomePage....");
-        Assert.assertTrue(tdHomePage.isTelusLogDisplayed(),"verify Telus logo is displayed");
+        Assert.assertTrue(tdHomePage.isTelusLogoDisplayed(),"verify Telus logo is displayed");
     }
     public void searchInternetTroubleshooting(){
         System.out.println("search internet troubleshooting....");

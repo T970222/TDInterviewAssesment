@@ -44,7 +44,7 @@ public class TdHomePage {
     @FindBy(xpath = "//span[normalize-space()='Forums']//parent::a")
     public List<WebElement> searchResultContainersLink;
 
-    public boolean isTelusLogDisplayed(){
+    public boolean isTelusLogoDisplayed(){
         System.out.println("is telus Logo displayed....");
         driver.manage().window().maximize();
         waitForpageOrElementToLoad(telusLogo);
